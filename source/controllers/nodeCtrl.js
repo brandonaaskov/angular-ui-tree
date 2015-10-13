@@ -33,13 +33,13 @@
           });
         };
 
-        $scope.index = function () {
+        $scope.index = function (prop) {
           if (typeof $scope.$parentNodesScope.$modelValue === 'string') {
             return $scope.$parentNodesScope.$modelValue.indexOf($scope.$modelValue);
           } else {
             return $scope.$parentNodesScope.$modelValue.map(function (node) {
-              return node.id;
-            }).indexOf($scope.$modelValue.id);
+              return node[prop];
+            }).indexOf($scope.$modelValue[prop]);
           }
         };
 

@@ -1,5 +1,3 @@
-/* global angular */
-
 /**
  * @license Angular UI Tree v2.9.0
  * (c) 2010-2015. https://github.com/angular-ui-tree/angular-ui-tree
@@ -76,13 +74,13 @@
           });
         };
 
-        $scope.index = function () {
+        $scope.index = function (prop) {
           if (typeof $scope.$parentNodesScope.$modelValue === 'string') {
             return $scope.$parentNodesScope.$modelValue.indexOf($scope.$modelValue);
           } else {
             return $scope.$parentNodesScope.$modelValue.map(function (node) {
-              return node.id;
-            }).indexOf($scope.$modelValue.id);
+              return node[prop];
+            }).indexOf($scope.$modelValue[prop]);
           }
         };
 
